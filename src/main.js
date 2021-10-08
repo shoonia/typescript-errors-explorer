@@ -1,3 +1,5 @@
 import './styles.css';
 
-console.log('Hello')
+<document.body>
+  <h1>hello</h1>
+</document.body>
