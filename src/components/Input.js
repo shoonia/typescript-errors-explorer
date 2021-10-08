@@ -23,7 +23,11 @@ export const Input = () => {
       <div>
         Error code
       </div>
-      <input type="text" onInput={onInput} />
+      <input
+        type="text"
+        class="search"
+        onInput={onInput}
+      />
     </label>
   );
 }
