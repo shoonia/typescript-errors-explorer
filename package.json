@@ -1,0 +1,22 @@
+{
+  "name": "typescript-errors-explorer",
+  "version": "1.0.0",
+  "description": "TypeScript errors explorer",
+  "main": "dist/index.html",
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "serve": "python3 -m http.server -d dist"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0",
+    "rollup": "^2.58.0",
+    "rollup-plugin-css-only": "^3.1.0"
+  },
+  "author": {
+    "name": "Alexander Zaytsev",
+    "email": "zaytsev126@gmail.com",
+    "url": "https://twitter.com/_shoonia"
+  },
+  "license": "MIT"
+}
