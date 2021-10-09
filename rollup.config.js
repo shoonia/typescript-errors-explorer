@@ -13,7 +13,6 @@ const isProd = !process.env.ROLLUP_WATCH;
 const isDev = !isProd;
 const nodeEnv = isProd ? 'production' : 'development';
 const extensions = ['.js'];
-const cssFile = './dist/styles.css';
 
 process.env.NODE_ENV = nodeEnv;
 emptyDirSync('./dist');
@@ -28,14 +27,14 @@ export default {
   plugins: [
     css({
       output: isDev
-        ? cssFile
+        ? 'styles.css'
         : (styles) => {
           return postcss([
             cssnano(),
           ])
             .process(styles)
             .then(
-              ({ css }) => writeFile(cssFile, css),
+              ({ css }) => writeFile('./dist/styles.css', css),
             );
         }
     }),
