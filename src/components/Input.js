@@ -3,15 +3,15 @@ import { getState, dispatch } from '../store';
 export const Input = () => {
   const onInput = ({ target }) => {
     const { allMessages } = getState();
-    const value = target.value.trim().toLowerCase();
+    const search = target.value.trim().toLowerCase();
 
     const messages = allMessages.filter((i) => {
-      return i.code.startsWith(value)
-        || i.message.toLowerCase().includes(value);
+      return i.code.startsWith(search)
+        || i.message.toLowerCase().includes(search);
     });
 
     setTimeout(() => {
-      dispatch('data/update', { messages });
+      dispatch('data/update', { messages, search });
     });
   };
 

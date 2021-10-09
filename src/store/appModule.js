@@ -26,6 +26,7 @@ export const appModule = async ({ on, dispatch }) => {
     return {
       allMessages: [],
       messages: [],
+      search: '',
     };
   });
 
