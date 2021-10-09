@@ -1,18 +1,18 @@
-import { getState, dispatch } from '../store';
+import { getState, dispatch, connect } from '../store';
 
 export const Input = () => {
+  const state = getState();
+
+  connect('search', ({ search }) => {
+    const path = search !== ''
+      ? `?q=${decodeURIComponent(search)}`
+      : '/';
+
+    history.pushState(null, null, path);
+  });
+
   const onInput = ({ target }) => {
-    const { allMessages } = getState();
-    const search = target.value.trim().toLowerCase();
-
-    const messages = allMessages.filter((i) => {
-      return i.code.startsWith(search)
-        || i.message.toLowerCase().includes(search);
-    });
-
-    setTimeout(() => {
-      dispatch('data/update', { messages, search });
-    });
+    dispatch('set/search', target.value.trim().toLowerCase());
   };
 
   return (
@@ -24,6 +24,7 @@ export const Input = () => {
         type="text"
         class="search"
         onInput={onInput}
+        value={state.search}
       />
     </label>
   );

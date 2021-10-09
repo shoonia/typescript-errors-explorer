@@ -21,24 +21,40 @@ const transformMessages = (data) => {
   return messages;
 };
 
-export const appModule = async ({ on, dispatch }) => {
+const searchMessages = (messages, search) => {
+  return messages.filter(
+    (i) => i.code.startsWith(search) || i.message.toLowerCase().includes(search),
+  );
+};
+
+export const appModule = async ({ get, on, dispatch }) => {
   on('@init', () => {
+    const q = new URLSearchParams(location.search);
+
     return {
       allMessages: [],
       messages: [],
-      search: '',
+      search: q.has('q') ? q.get('q') : '',
     };
   });
 
-  on('data/update', (_, data) => data);
+  on('data/load', (_, data) => data);
+
+  on('set/search', ({ allMessages }, search) => {
+    return {
+      search,
+      messages: searchMessages(allMessages, search),
+    };
+  });
 
   try {
     const data = await getData();
     const allMessages = transformMessages(data);
+    const { search } = get();
 
-    dispatch('data/update', {
+    dispatch('data/load', {
       allMessages,
-      messages: allMessages,
+      messages: searchMessages(allMessages, search),
     });
   } catch {
     // ...
