@@ -27,11 +27,10 @@ export default {
   },
   plugins: [
     css({
-      output: (styles) => {
-        if (isDev) {
-          writeFile(cssFile, styles);
-        } else {
-          postcss([
+      output: isDev
+        ? cssFile
+        : (styles) => {
+          return postcss([
             cssnano(),
           ])
             .process(styles)
@@ -39,7 +38,6 @@ export default {
               ({ css }) => writeFile(cssFile, css),
             );
         }
-      }
     }),
     babel({
       babelHelpers: 'bundled',
