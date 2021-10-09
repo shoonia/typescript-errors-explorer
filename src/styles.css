@@ -1,9 +1,14 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 16px;
   color: #2b5672;
   padding: 10px;
-  box-sizing: border-box;
 }
 
 code {
