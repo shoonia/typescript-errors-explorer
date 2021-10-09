@@ -5,13 +5,9 @@ export const Input = () => {
     const { allMessages } = getState();
     const value = target.value.trim();
 
-    const messages = {};
-
-    for (const key in allMessages) {
-      if (key.startsWith(value)) {
-        messages[key] = allMessages[key];
-      }
-    }
+    const messages = allMessages.filter((i) => {
+      return i.code.startsWith(value);
+    });
 
     setTimeout(() => {
       dispatch('data/update', { messages });

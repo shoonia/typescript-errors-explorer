@@ -3,14 +3,10 @@ import { connect } from '../store';
 export const List = () => {
   const mount = (node) => {
     connect('messages', ({ messages }) => {
-      const List = <></>;
-
-      for (const key in messages) {
-        const i = messages[key];
-
-        <List>
+      const List = messages.reduce((Fragment, i) =>
+        <Fragment>
           <li class="item">
-            <code>{key}</code>
+            <code>{i.code}</code>
             :
             <code class="category">
               {i.category}
@@ -19,8 +15,9 @@ export const List = () => {
               {i.message}
             </p>
           </li>
-        </List>;
-      }
+        </Fragment>,
+        <></>
+      );
 
       node.replaceChildren(List);
     });

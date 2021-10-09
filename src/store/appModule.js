@@ -6,15 +6,16 @@ const getData = async () => {
 };
 
 const transformMessages = (data) => {
-  const messages = {};
+  const messages = [];
 
   for (const key in data) {
     const i = data[key];
 
-    messages[i.code] = {
+    messages.push({
       message: key,
+      code: `${i.code}`,
       category: i.category,
-    };
+    });
   }
 
   return messages;
@@ -23,8 +24,8 @@ const transformMessages = (data) => {
 export const appModule = async ({ on, dispatch }) => {
   on('@init', () => {
     return {
-      allMessages: {},
-      messages: {},
+      allMessages: [],
+      messages: [],
     };
   });
 
