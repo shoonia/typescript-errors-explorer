@@ -1,19 +1,17 @@
-import { getState, dispatch, connect } from '../store';
+import { getState, dispatch } from '../store';
 
 export const Input = () => {
   const state = getState();
-
-  connect('search', ({ search }) => {
-    const p = location.pathname;
-    const q = search === '' ? p : `${p}?q=${decodeURIComponent(search)}`;
-
-    history.pushState(null, null, q);
-  });
+  const p = location.pathname;
 
   const onInput = ({ target }) => {
     setTimeout(() => {
-      dispatch('set/search', target.value.trim().toLowerCase());
-    })
+      const search = target.value.trim().toLowerCase();
+      const q = search === '' ? p : `${p}?q=${decodeURIComponent(search)}`;
+
+      history.pushState(null, null, q);
+      dispatch('set/search', search);
+    });
   };
 
   return (
