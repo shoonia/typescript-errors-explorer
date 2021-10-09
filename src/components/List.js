@@ -30,10 +30,8 @@ export const List = () => {
       const List = messages.reduce((Fragment, i) =>
         <Fragment>
           <li class="item">
-            <code>{i.code}</code>
-            :
-            <code class="category">
-              {i.category}
+            <code>
+              {markUp(i.code)}: {i.category}
             </code>
             <p class="message">
               {markUp(i.message)}
