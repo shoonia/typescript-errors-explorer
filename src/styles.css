@@ -28,6 +28,7 @@ code {
 
 .message {
   margin: 0.5em 0 5px 0;
+  word-break: break-all;
 }
 
 .field {
