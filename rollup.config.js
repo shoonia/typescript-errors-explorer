@@ -4,6 +4,8 @@ import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
+import serve from 'rollup-plugin-serve';
+import livereload from 'rollup-plugin-livereload';
 import postcss from 'postcss';
 import cssnano from 'cssnano';
 
@@ -52,6 +54,13 @@ export default {
     }),
     commonjs(),
     isProd && terser(),
+    isDev && serve({
+      contentBase: './dist',
+      port: 3000,
+    }),
+    isDev && livereload({
+      delay: 300,
+    }),
   ],
   watch: {
     clearScreen: false,
