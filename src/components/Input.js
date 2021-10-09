@@ -4,15 +4,16 @@ export const Input = () => {
   const state = getState();
 
   connect('search', ({ search }) => {
-    const path = search !== ''
-      ? `?q=${decodeURIComponent(search)}`
-      : '/';
+    const p = location.pathname;
+    const q = search === '' ? p : `${p}?q=${decodeURIComponent(search)}`;
 
-    history.pushState(null, null, path);
+    history.pushState(null, null, q);
   });
 
   const onInput = ({ target }) => {
-    dispatch('set/search', target.value.trim().toLowerCase());
+    setTimeout(() => {
+      dispatch('set/search', target.value.trim().toLowerCase());
+    })
   };
 
   return (
