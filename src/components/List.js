@@ -5,7 +5,8 @@ const template = (target) => {
     return (s) => s;
   }
 
-  const regExp = new RegExp(target, 'i');
+  const tmp = target.replace(/[\[\]()\|\\.*\^\?\+]/g, (i) => '\\' + i);
+  const regExp = new RegExp(tmp, 'i');
 
   return (source) => {
     const match = source.match(regExp);
