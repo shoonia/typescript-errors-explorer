@@ -31,7 +31,7 @@ export const List = () => {
         <Fragment>
           <li class="item">
             <code>
-              {markUp(i.code)}: {i.category}
+              {markUp(`${i.code}: ${i.category}`)}
             </code>
             <p class="message">
               {markUp(i.message)}
