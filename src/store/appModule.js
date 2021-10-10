@@ -32,6 +32,7 @@ export const appModule = async ({ get, on, dispatch }) => {
     const q = new URLSearchParams(location.search);
 
     return {
+      isLoad: false,
       allMessages: [],
       messages: [],
       search: q.has('q') ? q.get('q') : '',
@@ -53,6 +54,7 @@ export const appModule = async ({ get, on, dispatch }) => {
     const { search } = get();
 
     dispatch('data/load', {
+      isLoad: true,
       allMessages,
       messages: searchMessages(allMessages, search),
     });

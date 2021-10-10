@@ -25,7 +25,17 @@ const template = (target) => {
 
 export const List = () => {
   const mount = (node) => {
-    connect('messages', ({ messages, search }) => {
+    connect('messages', ({ isLoad, messages, search }) => {
+      if (isLoad && messages.length < 1) {
+        return node.replaceChildren(
+          <li class="item">
+            <p>
+              <em>Not Found</em>
+            </p>
+          </li>
+        );
+      }
+
       const markUp = template(search);
 
       const List = messages.reduce((Fragment, i) =>
