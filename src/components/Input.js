@@ -4,8 +4,12 @@ export const Input = () => {
   const state = getState();
   const p = location.pathname;
 
+  let f;
+
   const onInput = ({ target }) => {
-    setTimeout(() => {
+    cancelAnimationFrame(f);
+
+    f = requestAnimationFrame(() => {
       const search = target.value.trim().toLowerCase();
       const q = search === '' ? p : `${p}?q=${decodeURIComponent(search)}`;
 
