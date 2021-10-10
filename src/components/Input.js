@@ -20,13 +20,14 @@ export const Input = () => {
 
   return (
     <label>
-      <div>
-        Error code
+      <div class="label">
+        Error code or message
       </div>
       <input
         type="text"
         class="search"
         onInput={onInput}
+        placeholder="code or message"
         value={state.search}
       />
     </label>
