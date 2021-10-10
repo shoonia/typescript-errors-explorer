@@ -9,7 +9,7 @@
     "serve": "python3 -m http.server -d dist"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.17.0",
+    "jsx-dom-runtime": "^0.17.1",
     "storeon": "^3.1.4",
     "storeon-connect": "^0.6.0"
   },
