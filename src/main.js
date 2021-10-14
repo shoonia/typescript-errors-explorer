@@ -1,4 +1,4 @@
-import * as s from './styles.css';
+import * as s from './styles.module.css';
 import { Input } from './components/Input';
 import { List } from './components/List';
 

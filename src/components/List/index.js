@@ -1,4 +1,4 @@
-import * as s from './styles.css';
+import * as s from './styles.module.css';
 import { connect } from '../../store';
 
 const template = (target) => {
