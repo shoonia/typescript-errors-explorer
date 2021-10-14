@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build --no-source-maps --no-cache",
+    "build": "parcel build --no-source-maps --no-cache --public-url /typescript-errors-explorer",
     "serve": "python3 -m http.server -d dist"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
