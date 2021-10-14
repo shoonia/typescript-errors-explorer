@@ -1,13 +1,13 @@
-import './styles.css';
+import * as s from './styles.css';
 import { Input } from './components/Input';
 import { List } from './components/List';
 
 <document.body>
-  <main class="box">
+  <main class={s.box}>
     <h1>
       TypeScript errors explorer
     </h1>
-    <section class="field">
+    <section class={s.field}>
       <Input />
     </section>
     <section>

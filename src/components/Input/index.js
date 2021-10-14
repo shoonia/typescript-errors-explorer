@@ -1,4 +1,5 @@
-import { getState, dispatch } from '../store';
+import * as s from './styles.css';
+import { getState, dispatch } from '../../store';
 
 export const Input = () => {
   const state = getState();
@@ -20,12 +21,12 @@ export const Input = () => {
 
   return (
     <label>
-      <div class="label">
+      <div class={s.label}>
         Error code or message
       </div>
       <input
         type="text"
-        class="search"
+        class={s.search}
         onInput={onInput}
         placeholder="code or message"
         value={state.search}

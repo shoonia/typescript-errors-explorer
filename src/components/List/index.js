@@ -1,4 +1,5 @@
-import { connect } from '../store';
+import * as s from './styles.css';
+import { connect } from '../../store';
 
 const template = (target) => {
   if (target.length < 1) {
@@ -28,7 +29,7 @@ export const List = () => {
     connect('messages', ({ isLoad, messages, search }) => {
       if (isLoad && messages.length < 1) {
         return node.replaceChildren(
-          <li class="item">
+          <li class={s.item}>
             <p>
               <em>Not Found</em>
             </p>
@@ -40,11 +41,11 @@ export const List = () => {
 
       const List = messages.reduce((Fragment, i) =>
         <Fragment>
-          <li class="item">
+          <li class={s.item}>
             <code>
               {markUp(`${i.code}: ${i.category}`)}
             </code>
-            <p class="message">
+            <p class={s.message}>
               {markUp(i.message)}
             </p>
           </li>
@@ -57,6 +58,6 @@ export const List = () => {
   };
 
   return (
-    <ul class="list" ref={mount} />
+    <ul class={s.list} ref={mount} />
   );
 };

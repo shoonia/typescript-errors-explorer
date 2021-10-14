@@ -1,17 +1,17 @@
-*,
-*::after,
-*::before {
+:global(*),
+:global(*::after),
+:global(*::before) {
   box-sizing: border-box;
 }
 
-body {
+:global(body) {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 16px;
   color: #2b5672;
   padding: 10px;
 }
 
-code {
+:global(code) {
   font-size: 14px;
 }
 
@@ -20,41 +20,6 @@ code {
   margin: 0 auto;
 }
 
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.item {
-  padding: 10px 0;
-  border-bottom: 1px solid #b6c1cd;
-}
-
-.message {
-  margin: 0.5em 0 5px 0;
-  word-break: break-all;
-}
-
 .field {
   padding: 0.5em 0;
-}
-
-.label {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.search {
-  padding: 10px;
-  width: 100%;
-  max-width: 450px;
-  border: 1px solid #116dff;
-  border-radius: 2px;
-  font-size: 1em;
-}
-
-.search::placeholder {
-  font-size: 13px;
-  color: #b6c1cd;
 }
