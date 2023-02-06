@@ -10,13 +10,15 @@
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
-    "jsx-dom-runtime": "^0.17.2",
+    "jsx-dom-runtime": "^0.18.0",
     "storeon": "^3.1.5",
     "storeon-connect": "^0.9.0"
   },
   "devDependencies": {
-    "mini-css-class-name": "^0.13.1",
-    "parcel": "^2.0.0"
+    "mini-css-class-name": "^0.13.2",
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.21",
+    "postcss-modules": "^4.3.1"
   },
   "author": {
     "name": "Alexander Zaytsev",

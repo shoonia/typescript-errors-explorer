@@ -48,17 +48,13 @@ export const appModule = async ({ get, on, dispatch }) => {
     };
   });
 
-  try {
-    const data = await getData();
-    const allMessages = transformMessages(data);
-    const { search } = get();
+  const data = await getData();
+  const allMessages = transformMessages(data);
+  const { search } = get();
 
-    dispatch('data/load', {
-      isLoad: true,
-      allMessages,
-      messages: searchMessages(allMessages, search),
-    });
-  } catch {
-    // ...
-  }
+  dispatch('data/load', {
+    isLoad: true,
+    allMessages,
+    messages: searchMessages(allMessages, search),
+  });
 };
