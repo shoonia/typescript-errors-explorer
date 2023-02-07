@@ -1,5 +1,4 @@
 import { createRef } from 'jsx-dom-runtime'
-
 import * as s from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
@@ -31,8 +30,8 @@ export const Input = () => {
   });
 
   return (
-    <label>
-      <div class={s.label}>
+    <label class={s.label}>
+      <div class={s.title}>
         Error code or message
       </div>
       <input

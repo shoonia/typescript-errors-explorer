@@ -1,11 +1,17 @@
 .label {
-  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1em 0;
+}
+
+.title {
+  margin-bottom: 1em;
   font-weight: bold;
 }
 
 .search {
   padding: 1em;
-  width: 100%;
   border: 1px solid #116dff;
   border-radius: 2px;
   font-size: 1em;

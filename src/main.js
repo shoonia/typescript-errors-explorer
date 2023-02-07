@@ -1,18 +1,21 @@
 import * as s from './styles.module.css';
-import { readyStore } from './store';
+import { dispatch, readyStore } from './store';
+import { getSearchParam } from './utils';
 import { Input } from './components/Input';
 import { List } from './components/List';
 
 <document.body>
-  <main class={s.box}>
+  <main class={s.content}>
     <h1>
       TypeScript errors explorer
     </h1>
-    <div class={s.field}>
-      <Input />
-    </div>
+    <Input />
     <List />
   </main>
 </document.body>;
+
+window.addEventListener('popstate', () => {
+  dispatch('set/search', getSearchParam());
+});
 
 readyStore();

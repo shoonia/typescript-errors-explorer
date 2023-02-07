@@ -1,4 +1,4 @@
-import { getSearchParam, getData } from './utils';
+import { getSearchParam, getData } from '../utils';
 
 const transformMessages = (data) => {
   const messages = [];
