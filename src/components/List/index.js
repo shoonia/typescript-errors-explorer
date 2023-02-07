@@ -39,11 +39,11 @@ export const List = () => {
 
       const markUp = template(search);
 
-      const List = messages.reduce((Fragment, i) =>
+      const items = messages.reduce((Fragment, i) =>
         <Fragment>
           <li class={s.item}>
             <code>
-              {markUp(`${i.code}: ${i.category}`)}
+              {markUp(i.code)}: {markUp(i.category)}
             </code>
             <p class={s.message}>
               {markUp(i.message)}
@@ -53,7 +53,7 @@ export const List = () => {
         <></>
       );
 
-      node.replaceChildren(List);
+      node.replaceChildren(items);
     });
   };
 
