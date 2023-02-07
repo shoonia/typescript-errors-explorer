@@ -1,23 +1,34 @@
+import { createRef } from 'jsx-dom-runtime'
+
 import * as s from './styles.module.css';
-import { getState, dispatch } from '../../store';
+import { dispatch, connect } from '../../store';
 
 export const Input = () => {
-  const state = getState();
-  const p = location.pathname;
+  const ref = createRef();
+  const url = new URL(location);
 
   let f;
 
-  const onInput = ({ target }) => {
+  const onInput = (event) => {
     cancelAnimationFrame(f);
 
     f = requestAnimationFrame(() => {
-      const search = target.value.trim().toLowerCase();
-      const q = search === '' ? p : `${p}?q=${decodeURIComponent(search)}`;
+      const search = event.target.value.trim().toLowerCase();
 
-      history.pushState(null, null, q);
+      if (search) {
+        url.searchParams.set('q', search);
+      } else {
+        url.searchParams.delete('q')
+      }
+
+      history.pushState(null, null, url.href);
       dispatch('set/search', search);
     });
   };
+
+  connect('search', (state) => {
+    ref.current.value = state.search;
+  });
 
   return (
     <label>
@@ -25,11 +36,11 @@ export const Input = () => {
         Error code or message
       </div>
       <input
+        ref={ref}
         type="text"
         class={s.search}
         onInput={onInput}
         placeholder="code or message"
-        value={state.search}
       />
     </label>
   );

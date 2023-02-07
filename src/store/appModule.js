@@ -1,9 +1,4 @@
-const getData = async () => {
-  const link = 'https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json';
-  const response = await fetch(link);
-
-  return response.json();
-};
+import { getSearchParam, getData } from './utils';
 
 const transformMessages = (data) => {
   const messages = [];
@@ -29,13 +24,11 @@ const searchMessages = (messages, search) => {
 
 export const appModule = async (store) => {
   store.on('@init', () => {
-    const q = new URLSearchParams(location.search);
-
     return {
       isLoad: false,
       allMessages: [],
       messages: [],
-      search: q.has('q') ? q.get('q') : '',
+      search: getSearchParam(),
     };
   });
 
