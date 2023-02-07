@@ -1,4 +1,5 @@
 import * as s from './styles.module.css';
+import { readyStore } from './store';
 import { Input } from './components/Input';
 import { List } from './components/List';
 
@@ -15,3 +16,5 @@ import { List } from './components/List';
     </section>
   </main>
 </document.body>;
+
+readyStore();

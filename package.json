@@ -4,15 +4,15 @@
   "description": "TypeScript errors explorer",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
-    "build": "rm -rf dist && parcel build --no-source-maps --no-cache --public-url /typescript-errors-explorer",
-    "serve": "python3 -m http.server -d dist"
+    "start": "npm run clean && parcel --no-source-maps --no-cache",
+    "build": "npm run clean && parcel build --no-source-maps --no-cache --public-url /typescript-errors-explorer",
+    "serve": "python3 -m http.server -d dist",
+    "clean": "rm -rf dist .parcel-cache"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
     "jsx-dom-runtime": "^0.18.0",
-    "storeon": "^3.1.5",
-    "storeon-connect": "^0.9.0"
+    "storeon-velo": "^4.0.0"
   },
   "devDependencies": {
     "mini-css-class-name": "^0.13.2",

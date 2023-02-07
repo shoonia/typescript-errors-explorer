@@ -1,14 +1,7 @@
-import { createStoreon } from 'storeon';
-import { storeonConnect } from 'storeon-connect';
+import { createStoreon } from 'storeon-velo';
 
 import { appModule } from './appModule';
 
-const store = createStoreon([
+export const { getState, dispatch, connect, readyStore } = createStoreon([
   appModule,
 ]);
-
-export const {
-  getState,
-  dispatch,
-  connect,
-} = storeonConnect(store);

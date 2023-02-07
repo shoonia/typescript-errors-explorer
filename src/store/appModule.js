@@ -27,8 +27,8 @@ const searchMessages = (messages, search) => {
   );
 };
 
-export const appModule = async ({ get, on, dispatch }) => {
-  on('@init', () => {
+export const appModule = async (store) => {
+  store.on('@init', () => {
     const q = new URLSearchParams(location.search);
 
     return {
@@ -39,9 +39,7 @@ export const appModule = async ({ get, on, dispatch }) => {
     };
   });
 
-  on('data/load', (_, data) => data);
-
-  on('set/search', ({ allMessages }, search) => {
+  store.on('set/search', ({ allMessages }, search) => {
     return {
       search,
       messages: searchMessages(allMessages, search),
@@ -50,9 +48,9 @@ export const appModule = async ({ get, on, dispatch }) => {
 
   const data = await getData();
   const allMessages = transformMessages(data);
-  const { search } = get();
+  const { search } = store.get();
 
-  dispatch('data/load', {
+  store.set({
     isLoad: true,
     allMessages,
     messages: searchMessages(allMessages, search),
