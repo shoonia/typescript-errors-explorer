@@ -8,12 +8,10 @@ import { List } from './components/List';
     <h1>
       TypeScript errors explorer
     </h1>
-    <section class={s.field}>
+    <div class={s.field}>
       <Input />
-    </section>
-    <section>
-      <List />
-    </section>
+    </div>
+    <List />
   </main>
 </document.body>;
 

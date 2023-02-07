@@ -1,18 +1,16 @@
 .label {
-  font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 0.5em;
+  font-weight: bold;
 }
 
 .search {
-  padding: 10px;
+  padding: 1em;
   width: 100%;
-  max-width: 450px;
   border: 1px solid #116dff;
   border-radius: 2px;
   font-size: 1em;
 }
 
 .search::placeholder {
-  font-size: 13px;
   color: #b6c1cd;
 }
