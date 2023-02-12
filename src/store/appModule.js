@@ -1,6 +1,6 @@
 import { getSearchParam, getData } from '../utils';
 
-const LIMIT = 15;
+const LIMIT = Math.ceil(window.innerHeight / 70);
 
 const transformMessages = (data) => {
   const messages = [];
