@@ -3,6 +3,7 @@ import { dispatch, readyStore } from './store';
 import { getSearchParam } from './utils';
 import { Input } from './components/Input';
 import { List } from './components/List';
+import { Footer } from './components/Footer';
 
 <document.body>
   <main class={s.content}>
@@ -11,6 +12,7 @@ import { List } from './components/List';
     </h1>
     <Input />
     <List />
+    <Footer />
   </main>
 </document.body>;
 
