@@ -1,3 +1,4 @@
+import * as s from './styles.module.css';
 import { dispatch } from '../../store';
 
 export const Footer = () => {
@@ -14,6 +15,6 @@ export const Footer = () => {
   };
 
   return (
-    <div ref={mount} style={{ height: '100px' }} />
+    <footer ref={mount} class={s.footer} />
   );
 }

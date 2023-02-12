@@ -6,23 +6,17 @@ export const Input = () => {
   const ref = createRef();
   const url = new URL(location);
 
-  let f;
-
   const onInput = (event) => {
-    cancelAnimationFrame(f);
+    const search = event.target.value.trim().toLowerCase();
 
-    f = requestAnimationFrame(() => {
-      const search = event.target.value.trim().toLowerCase();
+    if (search) {
+      url.searchParams.set('q', search);
+    } else {
+      url.searchParams.delete('q')
+    }
 
-      if (search) {
-        url.searchParams.set('q', search);
-      } else {
-        url.searchParams.delete('q')
-      }
-
-      history.pushState(null, null, url.href);
-      dispatch('set/search', search);
-    });
+    history.pushState(null, null, url.href);
+    dispatch('set/search', search);
   };
 
   connect('search', (state) => {
@@ -38,7 +32,7 @@ export const Input = () => {
         ref={ref}
         type="text"
         class={s.search}
-        onInput={onInput}
+        oninput={onInput}
         placeholder="code or message"
       />
     </label>

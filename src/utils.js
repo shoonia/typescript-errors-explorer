@@ -6,7 +6,7 @@ export const getData = async () => {
 };
 
 export const getSearchParam = () => {
-  const q = new URLSearchParams(location.search);
+  const q = new URL(location).searchParams;
 
   return q.has('q') ? q.get('q') : '';
 }

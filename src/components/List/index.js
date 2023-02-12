@@ -1,4 +1,3 @@
-import { createRef } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
@@ -14,11 +13,13 @@ const template = (target) => {
     const match = source.match(regExp);
 
     if (Array.isArray(match)) {
-      return [
-        source.slice(0, match.index),
-        <mark>{match[0]}</mark>,
-        source.slice(match.index + target.length),
-      ];
+      return (
+        <>
+          {source.slice(0, match.index)}
+          <mark>{match[0]}</mark>
+          {source.slice(match.index + target.length)}
+        </>
+      )
     }
 
     return source;
