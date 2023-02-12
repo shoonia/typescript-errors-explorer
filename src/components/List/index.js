@@ -1,3 +1,4 @@
+import { createRef } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
@@ -26,7 +27,7 @@ const template = (target) => {
 
 export const List = () => {
   const mount = (node) => {
-    connect('messages', ({ isLoad, messages, search }) => {
+    connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
       if (isLoad && messages.length < 1) {
         return node.replaceChildren(
           <li class={s.item}>
@@ -39,7 +40,7 @@ export const List = () => {
 
       const markUp = template(search);
 
-      const items = messages.reduce((Fragment, i) =>
+      const items = messages.slice(start, end).reduce((Fragment, i) =>
         <Fragment>
           <li class={s.item}>
             <code>
@@ -53,7 +54,11 @@ export const List = () => {
         <></>
       );
 
-      node.replaceChildren(items);
+      if (start) {
+        node.append(items);
+      } else {
+        node.replaceChildren(items);
+      }
     });
   };
 
