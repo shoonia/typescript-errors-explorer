@@ -1,5 +1,7 @@
 import { getSearchParam, getData } from '../utils';
 
+const LIMIT = Math.ceil(window.innerHeight / 70);
+
 const transformMessages = (data) => {
   const messages = [];
 
@@ -29,6 +31,8 @@ export const appModule = async (store) => {
       allMessages: [],
       messages: [],
       search: getSearchParam(),
+      start: 0,
+      end: 0,
     };
   });
 
@@ -36,7 +40,18 @@ export const appModule = async (store) => {
     return {
       search,
       messages: searchMessages(allMessages, search),
+      start: 0,
+      end: LIMIT,
     };
+  });
+
+  store.on('set/scroll', ({ messages, end }) => {
+    if (messages.length > end) {
+      return {
+        start: end,
+        end: end + LIMIT,
+      };
+    }
   });
 
   const data = await getData();
@@ -47,5 +62,6 @@ export const appModule = async (store) => {
     isLoad: true,
     allMessages,
     messages: searchMessages(allMessages, search),
+    end: LIMIT,
   });
 };
