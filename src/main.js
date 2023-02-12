@@ -2,6 +2,7 @@ import * as s from './styles.module.css';
 import { dispatch, readyStore } from './store';
 import { getSearchParam } from './utils';
 import { Input } from './components/Input';
+import { Counter } from './components/Counter';
 import { List } from './components/List';
 import { Footer } from './components/Footer';
 
@@ -11,6 +12,7 @@ import { Footer } from './components/Footer';
       TypeScript errors explorer
     </h1>
     <Input />
+    <Counter />
     <List />
     <Footer />
   </main>

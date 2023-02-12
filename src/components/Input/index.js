@@ -1,9 +1,9 @@
-import { createRef } from 'jsx-dom-runtime'
+import { useRef } from 'jsx-dom-runtime'
 import * as s from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
 export const Input = () => {
-  const ref = createRef();
+  const ref = useRef();
   const url = new URL(location);
 
   const onInput = (event) => {
