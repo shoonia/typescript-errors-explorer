@@ -1,12 +1,22 @@
 export const getData = async () => {
-  const url = 'https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json';
-  const response = await fetch(url);
+  const response = await fetch('https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json');
+  const data = await response.json()
 
-  return response.json();
+  const messages = [];
+
+  for (const key in data) {
+    const i = data[key];
+
+    messages.push({
+      message: key,
+      code: `${i.code}`,
+      category: i.category,
+    });
+  }
+
+  return messages;
 };
 
 export const getSearchParam = () => {
-  const q = new URL(location).searchParams;
-
-  return q.has('q') ? q.get('q') : '';
+  return new URL(location).searchParams.get('q') || ''
 }

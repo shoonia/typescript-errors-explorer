@@ -1,24 +1,9 @@
-import * as s from './styles.module.css';
+import { App } from './components/App';
 import { dispatch, readyStore } from './store';
-import { getSearchParam } from './utils';
-import { Input } from './components/Input';
-import { Counter } from './components/Counter';
-import { List } from './components/List';
-import { Footer } from './components/Footer';
 
-<document.body>
-  <main class={s.content}>
-    <h1>
-      TypeScript errors explorer
-    </h1>
-    <Input />
-    <Counter />
-    <List />
-    <Footer />
-  </main>
-</document.body>;
+document.body.append(<App />);
 
-window.addEventListener('popstate', () => {
+window.addEventListener('popstate', (event) => {
   dispatch('set/search', getSearchParam());
 });
 
