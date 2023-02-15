@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "TypeScript errors explorer",
   "source": "src/index.html",
+  "type": "module",
   "scripts": {
     "start": "npm run clean && parcel --no-source-maps --no-cache",
     "build": "npm run clean && parcel build --no-source-maps --no-cache --public-url /typescript-errors-explorer",
@@ -11,7 +12,7 @@
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
-    "jsx-dom-runtime": "^0.20.0",
+    "jsx-dom-runtime": "^0.24.0",
     "storeon-velo": "^4.0.0"
   },
   "devDependencies": {
