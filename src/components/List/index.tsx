@@ -1,4 +1,4 @@
-import type { FC } from 'jsx-dom-runtime';
+import { FC, Fragment } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
@@ -18,7 +18,7 @@ const template = (target: string) => {
         <>
           {source.slice(0, match.index)}
           <mark>{match[0]}</mark>
-          {source.slice(match.index + target.length)}
+          {source.slice(match.index ?? 0 + target.length)}
         </>
       )
     }
@@ -42,8 +42,8 @@ export const List: FC = () => {
 
       const markUp = template(search);
 
-      const items = messages.slice(start, end).reduce((Fragment, i) =>
-        <Fragment>
+      const items = messages.slice(start, end).reduce((frg, i) => {
+        frg.append(
           <li class={s.item}>
             <code>
               {markUp(i.code)}: {markUp(i.category)}
@@ -52,9 +52,10 @@ export const List: FC = () => {
               {markUp(i.message)}
             </p>
           </li>
-        </Fragment>,
-        <></>
-      );
+        );
+
+        return frg;
+      }, Fragment({}));
 
       if (start) {
         node.append(items);

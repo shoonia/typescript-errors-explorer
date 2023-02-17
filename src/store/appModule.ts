@@ -1,3 +1,5 @@
+import type { StoreonModule } from 'storeon-velo';
+import type { State, Events } from './types'
 import { getSearchParam, getData, IMessage } from '../utils';
 
 const LIMIT = Math.ceil(window.innerHeight / 70);
@@ -8,7 +10,7 @@ const searchMessages = (messages: IMessage[], search: string): IMessage[] => {
   );
 };
 
-export const appModule = async (store) => {
+export const appModule: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
     return {
       isLoad: false,

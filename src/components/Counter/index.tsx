@@ -7,11 +7,11 @@ export const Counter: FC = () => {
   const [current, setCurret] = useText('0');
 
   connect('allMessages', ({ allMessages }) => {
-    setTotal(allMessages.length);
+    setTotal(allMessages.length.toString());
   });
 
   connect('messages', ({ messages }) => {
-    setCurret(messages.length);
+    setCurret(messages.length.toString());
   });
 
   return (

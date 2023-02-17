@@ -8,7 +8,7 @@ export const getData = async (): Promise<IMessage[]> => {
   const response = await fetch('https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json');
   const data = await response.json()
 
-  const messages = [];
+  const messages: IMessage[] = [];
 
   for (const key in data) {
     const i = data[key];

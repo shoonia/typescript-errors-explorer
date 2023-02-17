@@ -7,8 +7,11 @@
     "jsxImportSource": "jsx-dom-runtime",
     "moduleResolution": "node",
     "importsNotUsedAsValues": "error",
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
     "lib": [
       "DOM"
     ]
