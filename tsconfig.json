@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "jsx-dom-runtime",
+    "moduleResolution": "node",
+    "lib": [
+      "DOM"
+    ]
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts"
+  ]
+}

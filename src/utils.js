@@ -18,5 +18,5 @@ export const getData = async () => {
 };
 
 export const getSearchParam = () => {
-  return new URL(location).searchParams.get('q') || ''
+  return new URL(location.href).searchParams.get('q') || ''
 }

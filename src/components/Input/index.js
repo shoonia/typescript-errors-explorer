@@ -4,7 +4,7 @@ import { dispatch, connect } from '../../store';
 
 export const Input = () => {
   const ref = useRef();
-  const url = new URL(location);
+  const url = new URL(location.href);
 
   const onInput = (event) => {
     const search = event.target.value.trim().toLowerCase();

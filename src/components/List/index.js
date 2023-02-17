@@ -10,6 +10,7 @@ const template = (target) => {
   const regExp = new RegExp(tmp, 'i');
 
   return (source) => {
+    /** @type {RegExpMatchArray} */
     const match = source.match(regExp);
 
     if (Array.isArray(match)) {
