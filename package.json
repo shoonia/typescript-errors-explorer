@@ -6,13 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "npm run clean && parcel --no-source-maps --no-cache",
-    "build": "npm run clean && parcel build --no-source-maps --no-cache --public-url /typescript-errors-explorer",
+    "build": "npm run clean && parcel build --no-source-maps --no-cache",
     "serve": "python3 -m http.server -d dist",
     "clean": "rm -rf dist .parcel-cache"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
-    "jsx-dom-runtime": "^0.24.0",
+    "jsx-dom-runtime": "^0.26.0",
     "storeon-velo": "^4.0.0"
   },
   "devDependencies": {
@@ -20,6 +19,19 @@
     "parcel": "^2.8.3",
     "postcss": "^8.4.21",
     "postcss-modules": "^4.3.1"
+  },
+  "browser": {
+    "engines": {
+      "browsers": [
+        "> 1%",
+        "not dead"
+      ]
+    }
+  },
+  "targets": {
+    "default": {
+      "publicUrl": " /typescript-errors-explorer"
+    }
   },
   "author": {
     "name": "Alexander Zaytsev",
