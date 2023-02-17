@@ -4,7 +4,7 @@ import { Counter } from './Counter';
 import { List } from './List';
 import { Footer } from './Footer';
 
-export const App = () => (
+export const App = (
   <main class={s.content}>
     <h1>
       TypeScript errors explorer
