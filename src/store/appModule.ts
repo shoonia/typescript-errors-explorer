@@ -1,8 +1,8 @@
-import { getSearchParam, getData } from '../utils';
+import { getSearchParam, getData, IMessage } from '../utils';
 
 const LIMIT = Math.ceil(window.innerHeight / 70);
 
-const searchMessages = (messages, search) => {
+const searchMessages = (messages: IMessage[], search: string): IMessage[] => {
   return messages.filter(
     (i) => i.code.startsWith(search) || i.message.toLowerCase().includes(search),
   );

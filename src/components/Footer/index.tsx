@@ -1,7 +1,8 @@
+import type { FC } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { dispatch } from '../../store';
 
-export const Footer = () => {
+export const Footer: FC = () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -10,7 +11,7 @@ export const Footer = () => {
     });
   });
 
-  const mount = (node) => {
+  const mount = (node: HTMLElement) => {
     observer.observe(node);
   };
 

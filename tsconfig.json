@@ -6,12 +6,16 @@
     "jsx": "react-jsx",
     "jsxImportSource": "jsx-dom-runtime",
     "moduleResolution": "node",
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "lib": [
       "DOM"
     ]
   },
   "include": [
     "src/**/*.js",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }

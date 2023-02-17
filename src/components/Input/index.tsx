@@ -1,13 +1,13 @@
-import { useRef } from 'jsx-dom-runtime'
+import { type FC, useRef } from 'jsx-dom-runtime'
 import * as s from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
-export const Input = () => {
-  const ref = useRef();
+export const Input: FC = () => {
+  const ref = useRef<HTMLInputElement>();
   const url = new URL(location.href);
 
-  const onInput = (event) => {
-    const search = event.target.value.trim().toLowerCase();
+  const onInput: EventListener = () => {
+    const search = ref.current.value.trim().toLowerCase();
 
     if (search) {
       url.searchParams.set('q', search);

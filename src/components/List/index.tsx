@@ -1,16 +1,16 @@
+import type { FC } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
-const template = (target) => {
+const template = (target: string) => {
   if (target.length < 1) {
-    return (s) => s;
+    return (s: string) => s;
   }
 
   const tmp = target.replace(/[\[\]()\|\\.*\^\?\+]/g, (i) => '\\' + i);
   const regExp = new RegExp(tmp, 'i');
 
-  return (source) => {
-    /** @type {RegExpMatchArray} */
+  return (source: string) => {
     const match = source.match(regExp);
 
     if (Array.isArray(match)) {
@@ -27,8 +27,8 @@ const template = (target) => {
   };
 };
 
-export const List = () => {
-  const mount = (node) => {
+export const List: FC = () => {
+  const mount = (node: HTMLUListElement) => {
     connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
       if (isLoad && messages.length < 1) {
         return node.replaceChildren(

@@ -1,8 +1,8 @@
-import { useText } from 'jsx-dom-runtime';
+import { type FC, useText } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
-export const Counter = () => {
+export const Counter: FC = () => {
   const [total, setTotal] = useText('0');
   const [current, setCurret] = useText('0');
 

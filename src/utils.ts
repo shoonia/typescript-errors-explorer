@@ -1,4 +1,10 @@
-export const getData = async () => {
+export interface IMessage {
+  readonly message: string;
+  readonly code: string;
+  readonly category: string;
+}
+
+export const getData = async (): Promise<IMessage[]> => {
   const response = await fetch('https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json');
   const data = await response.json()
 
@@ -17,6 +23,6 @@ export const getData = async () => {
   return messages;
 };
 
-export const getSearchParam = () => {
+export const getSearchParam = (): string => {
   return new URL(location.href).searchParams.get('q') || ''
 }
