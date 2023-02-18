@@ -17,7 +17,7 @@ const template = (target: string) => {
         <>
           {source.slice(0, match.index)}
           <mark>{match[0]}</mark>
-          {source.slice(match.index ?? 0 + target.length)}
+          {source.slice((match.index ?? 0) + target.length)}
         </>
       )
     }
