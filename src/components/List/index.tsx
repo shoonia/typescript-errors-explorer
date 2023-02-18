@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'jsx-dom-runtime';
+import { Fragment } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
@@ -27,45 +27,42 @@ const template = (target: string) => {
   };
 };
 
-export const List: FC = () => {
-  const mount = (node: HTMLUListElement) => {
-    connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
-      if (isLoad && messages.length < 1) {
-        return node.replaceChildren(
-          <li class={s.item}>
-            <p>
-              <em>Not Found</em>
-            </p>
-          </li>
-        );
-      }
+const mount = (node: HTMLUListElement) => {
+  connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
+    if (isLoad && messages.length < 1) {
+      return node.replaceChildren(
+        <li class={s.item}>
+          <p>
+            <em>Not Found</em>
+          </p>
+        </li>
+      );
+    }
 
-      const markUp = template(search);
+    const markUp = template(search);
+    const items = Fragment({})
 
-      const items = messages.slice(start, end).reduce((frg, i) => {
-        frg.append(
-          <li class={s.item}>
-            <code>
-              {markUp(i.code)}: {markUp(i.category)}
-            </code>
-            <p class={s.message}>
-              {markUp(i.message)}
-            </p>
-          </li>
-        );
-
-        return frg;
-      }, Fragment({}));
-
-      if (start) {
-        node.append(items);
-      } else {
-        node.replaceChildren(items);
-      }
+    messages.slice(start, end).forEach((i) => {
+      items.append(
+        <li class={s.item}>
+          <code>
+            {markUp(i.code)}: {markUp(i.category)}
+          </code>
+          <p class={s.message}>
+            {markUp(i.message)}
+          </p>
+        </li>
+      );
     });
-  };
 
-  return (
-    <ul class={s.list} ref={mount} />
-  );
+    if (start) {
+      node.append(items);
+    } else {
+      node.replaceChildren(items);
+    }
+  });
 };
+
+export const List = (
+  <ul class={s.list} ref={mount} />
+);

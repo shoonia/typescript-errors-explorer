@@ -9,9 +9,9 @@ export const App = (
     <h1>
       TypeScript errors explorer
     </h1>
-    <Input />
-    <Counter />
-    <List />
-    <Footer />
+    {Input}
+    {Counter}
+    {List}
+    {Footer}
   </main>
 );
