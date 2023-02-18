@@ -9,10 +9,9 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-const mount = (node: HTMLElement) => {
-  observer.observe(node);
-};
-
 export const Footer = (
-  <footer ref={mount} class={s.footer} />
+  <footer
+    ref={(node) => observer.observe(node)}
+    class={s.footer}
+  />
 );

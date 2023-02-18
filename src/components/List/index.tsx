@@ -39,7 +39,7 @@ const mount = (node: HTMLUListElement) => {
     }
 
     const markUp = template(search);
-    const items = new DocumentFragment()
+    const items = new DocumentFragment();
 
     messages.slice(start, end).forEach((i) => {
       items.append(
