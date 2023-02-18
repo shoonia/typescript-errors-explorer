@@ -1,4 +1,3 @@
-import { Fragment } from 'jsx-dom-runtime';
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
@@ -40,7 +39,7 @@ const mount = (node: HTMLUListElement) => {
     }
 
     const markUp = template(search);
-    const items = Fragment({})
+    const items = new DocumentFragment()
 
     messages.slice(start, end).forEach((i) => {
       items.append(
