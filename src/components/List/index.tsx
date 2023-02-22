@@ -1,67 +1,47 @@
+import type { FC } from 'jsx-dom-runtime';
+
 import * as s from './styles.module.css';
 import { connect } from '../../store';
+import { template } from './template';
 
-const template = (target: string) => {
-  if (target.length < 1) {
-    return (s: string) => s;
-  }
+export const List: FC = () => {
+  const mount = (node: HTMLUListElement) => {
+    connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
+      if (isLoad && messages.length < 1) {
+        return node.replaceChildren(
+          <li class={s.item}>
+            <p>
+              <em>Not Found</em>
+            </p>
+          </li>
+        );
+      }
 
-  const tmp = target.replace(/[\[\]()\|\\.*\^\?\+]/g, (i) => '\\' + i);
-  const regExp = new RegExp(tmp, 'i');
+      const markUp = template(search);
+      const items = <></>;
 
-  return (source: string) => {
-    const match = source.match(regExp);
+      messages.slice(start, end).forEach((i) => {
+        items.append(
+          <li class={s.item}>
+            <code>
+              {markUp(i.code)}: {markUp(i.category)}
+            </code>
+            <p class={s.message}>
+              {markUp(i.message)}
+            </p>
+          </li>
+        );
+      });
 
-    if (Array.isArray(match)) {
-      return (
-        <>
-          {source.slice(0, match.index)}
-          <mark>{match[0]}</mark>
-          {source.slice((match.index ?? 0) + target.length)}
-        </>
-      )
-    }
-
-    return source;
-  };
-};
-
-const mount = (node: HTMLUListElement) => {
-  connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
-    if (isLoad && messages.length < 1) {
-      return node.replaceChildren(
-        <li class={s.item}>
-          <p>
-            <em>Not Found</em>
-          </p>
-        </li>
-      );
-    }
-
-    const markUp = template(search);
-    const items = new DocumentFragment();
-
-    messages.slice(start, end).forEach((i) => {
-      items.append(
-        <li class={s.item}>
-          <code>
-            {markUp(i.code)}: {markUp(i.category)}
-          </code>
-          <p class={s.message}>
-            {markUp(i.message)}
-          </p>
-        </li>
-      );
+      if (start) {
+        node.append(items);
+      } else {
+        node.replaceChildren(items);
+      }
     });
+  };
 
-    if (start) {
-      node.append(items);
-    } else {
-      node.replaceChildren(items);
-    }
-  });
+  return (
+    <ul class={s.list} ref={mount} />
+  );
 };
-
-export const List = (
-  <ul class={s.list} ref={mount} />
-);

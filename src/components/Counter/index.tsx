@@ -1,22 +1,25 @@
-import { useText } from 'jsx-dom-runtime';
+import { type FC, useText } from 'jsx-dom-runtime';
+
 import * as s from './styles.module.css';
 import { connect } from '../../store';
 
-const [total, setTotal] = useText('0');
-const [current, setCurret] = useText('0');
+export const Counter: FC = () => {
+  const [total, setTotal] = useText<string>('0');
+  const [current, setCurret] = useText<string>('0');
 
-connect('allMessages', ({ allMessages }) => {
-  setTotal(allMessages.length.toString());
-});
+  connect('allMessages', ({ allMessages }) => {
+    setTotal(`${allMessages.length}`);
+  });
 
-connect('messages', ({ messages }) => {
-  setCurret(messages.length.toString());
-});
+  connect('messages', ({ messages }) => {
+    setCurret(`${messages.length}`);
+  });
 
-export const Counter = (
-  <div class={s.box}>
-    {current}
-    <b>/</b>
-    {total}
-  </div>
-);
+  return (
+    <div class={s.box}>
+      {current}
+      <b>/</b>
+      {total}
+    </div>
+  );
+};
