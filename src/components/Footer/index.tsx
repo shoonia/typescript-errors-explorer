@@ -7,7 +7,7 @@ export const Footer: FC = () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        dispatch('set/scroll');
+        dispatch('on/scroll');
       }
     });
   });

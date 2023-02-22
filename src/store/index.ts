@@ -1,4 +1,5 @@
 import { createStoreon } from 'storeon-velo';
+
 import type { Events, State } from './types';
 import { appModule } from './appModule';
 

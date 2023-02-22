@@ -17,7 +17,7 @@ export const Input: FC = () => {
     }
 
     history.pushState(null, '', url.href);
-    dispatch('set/search', search);
+    dispatch('on/search', search);
   };
 
   connect('search', (state) => {

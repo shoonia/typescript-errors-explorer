@@ -1,11 +1,12 @@
 import type { StoreonModule } from 'storeon-velo';
+
 import type { State, Events } from './types'
 import { getSearchParam, getData, IMessage } from '../utils';
 
 const LIMIT = Math.ceil(window.innerHeight / 70);
 
-const searchMessages = (messages: IMessage[], search: string): IMessage[] => {
-  return messages.filter(
+const searchMessages = (all: IMessage[], search: string): IMessage[] => {
+  return all.filter(
     (i) => i.code.startsWith(search) || i.message.toLowerCase().includes(search),
   );
 };
@@ -22,7 +23,7 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
     };
   });
 
-  store.on('set/search', ({ allMessages }, search) => {
+  store.on('on/search', ({ allMessages }, search) => {
     return {
       search,
       messages: searchMessages(allMessages, search),
@@ -31,7 +32,7 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
     };
   });
 
-  store.on('set/scroll', ({ messages, end }) => {
+  store.on('on/scroll', ({ messages, end }) => {
     if (messages.length > end) {
       return {
         start: end,
