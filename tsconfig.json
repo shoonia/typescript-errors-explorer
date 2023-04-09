@@ -6,7 +6,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "jsx-dom-runtime",
     "moduleResolution": "node",
-    "importsNotUsedAsValues": "error",
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -17,8 +16,6 @@
     ]
   },
   "include": [
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "src",
   ]
 }
