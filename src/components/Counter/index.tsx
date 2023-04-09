@@ -4,8 +4,8 @@ import * as s from './styles.module.css';
 import { connect } from '../../store';
 
 export const Counter: FC = () => {
-  const [total, setTotal] = useText<string>('0');
-  const [current, setCurret] = useText<string>('0');
+  const [total, setTotal] = useText('0');
+  const [current, setCurret] = useText('0');
 
   connect('allMessages', ({ allMessages }) => {
     setTotal(`${allMessages.length}`);
