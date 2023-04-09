@@ -23,13 +23,15 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
     };
   });
 
-  store.on('on/search', ({ allMessages }, search) => {
-    return {
-      search,
-      messages: searchMessages(allMessages, search),
-      start: 0,
-      end: LIMIT,
-    };
+  store.on('on/search', ({ allMessages, search }, newSearch) => {
+    if (search !== newSearch) {
+      return {
+        search: newSearch,
+        messages: searchMessages(allMessages, newSearch),
+        start: 0,
+        end: LIMIT,
+      };
+    }
   });
 
   store.on('on/scroll', ({ messages, end }) => {
