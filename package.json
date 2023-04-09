@@ -12,15 +12,15 @@
     "test": "tsc"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.28.0",
-    "storeon-velo": "^4.1.1"
+    "jsx-dom-runtime": "^0.30.0",
+    "storeon-velo": "^4.1.2"
   },
   "devDependencies": {
     "mini-css-class-name": "^0.13.2",
     "parcel": "^2.8.3",
     "postcss": "^8.4.21",
     "postcss-modules": "^4.3.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.4"
   },
   "browser": {
     "engines": {
