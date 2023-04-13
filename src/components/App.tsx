@@ -4,6 +4,7 @@ import { Counter } from './Counter';
 import { List } from './List';
 import { Footer } from './Footer';
 import { SupportUkraine } from './SupportUkraine';
+import { Analytics } from './Analytics';
 
 interface Props {
   ready: (node: HTMLElement) => void;
@@ -23,5 +24,6 @@ export const App: FC<Props> = ({ ready }) => (
     <List />
     <Footer />
   </main>
+  <Analytics />
   </>
 );
