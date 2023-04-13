@@ -1,4 +1,4 @@
-import { type FC, useText } from 'jsx-dom-runtime';
+import { useText } from 'jsx-dom-runtime';
 
 import * as s from './styles.module.css';
 import { connect } from '../../store';
