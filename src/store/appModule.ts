@@ -3,7 +3,7 @@ import type { StoreonModule } from 'storeon-velo';
 import type { State, Events } from './types'
 import { getSearchParam, getData, IMessage } from '../utils';
 
-const LIMIT = Math.ceil(window.innerHeight / 70);
+const LIMIT = Math.ceil(window.innerHeight / 90);
 
 const searchMessages = (all: IMessage[], search: string): IMessage[] => {
   return all.filter(

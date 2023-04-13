@@ -1,0 +1,16 @@
+.box {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
