@@ -12,11 +12,11 @@
     "test": "tsc"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.38.0",
+    "jsx-dom-runtime": "^0.42.0",
     "storeon-velo": "^4.1.2"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3",
+    "@types/node": "^20.1.2",
     "mini-css-class-name": "^0.13.2",
     "parcel": "^2.8.3",
     "postcss": "^8.4.23",
