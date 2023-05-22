@@ -1,8 +1,8 @@
 import { App } from './components/App';
-import { dispatch, readyStore } from './store';
+import { dispatch } from './store';
 import { getSearchParam } from './utils';
 
-document.body.append(<App ready={readyStore} />);
+document.body.append(<App />);
 
 window.addEventListener('popstate', () => {
   dispatch('on/search', getSearchParam());

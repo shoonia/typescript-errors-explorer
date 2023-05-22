@@ -5,25 +5,22 @@ import { List } from './List';
 import { Footer } from './Footer';
 import { SupportUkraine } from './SupportUkraine';
 import { Analytics } from './Analytics';
+import { readyStore } from '../store';
 
-interface Props {
-  ready: (node: HTMLElement) => void;
-}
-
-export const App: FC<Props> = ({ ready }) => (
+export const App: FC = () => (
   <>
-  <header class={s.header}>
-    <SupportUkraine />
-  </header>
-  <main ref={ready} class={s.content}>
-    <h1>
-      TypeScript errors explorer
-    </h1>
-    <Input />
-    <Counter />
-    <List />
-    <Footer />
-  </main>
-  <Analytics />
+    <header class={s.header}>
+      <SupportUkraine />
+    </header>
+    <main ref={readyStore} class={s.content}>
+      <h1>
+        TypeScript errors explorer
+      </h1>
+      <Input />
+      <Counter />
+      <List />
+      <Footer />
+    </main>
+    <Analytics />
   </>
 );

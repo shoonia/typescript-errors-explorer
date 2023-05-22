@@ -1,6 +1,6 @@
 window.dataLayer = [];
 
-function gtag(..._: unknown[]): void {
+function gtag(a: string, b: unknown): void {
   window.dataLayer.push(arguments);
 }
 

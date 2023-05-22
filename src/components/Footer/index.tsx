@@ -2,17 +2,19 @@ import * as s from './styles.module.css';
 import { dispatch } from '../../store';
 
 export const Footer: FC = () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        dispatch('on/scroll');
-      }
-    });
-  });
+  const ready = (node: HTMLElement) => {
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          dispatch('on/scroll');
+        }
+      });
+    }).observe(node);
+  }
 
   return (
     <footer
-      ref={(node) => observer.observe(node)}
+      ref={ready}
       class={s.footer}
     />
   );

@@ -3,7 +3,7 @@ import { connect } from '../../store';
 import { template } from './template';
 
 export const List: FC = () => {
-  const mount = (node: HTMLUListElement) => {
+  const ready = (node: HTMLUListElement) => {
     connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
       if (isLoad && messages.length < 1) {
         return node.replaceChildren(
@@ -40,6 +40,6 @@ export const List: FC = () => {
   };
 
   return (
-    <ul class={s.list} ref={mount} />
+    <ul class={s.list} ref={ready} />
   );
 };
