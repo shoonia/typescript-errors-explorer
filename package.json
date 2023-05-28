@@ -12,28 +12,21 @@
     "test": "tsc"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.51.0",
+    "jsx-dom-runtime": "^0.52.0",
     "storeon-velo": "^4.1.2"
   },
   "devDependencies": {
-    "@types/node": "^20.2.3",
+    "@types/node": "^20.2.5",
     "mini-css-class-name": "^0.13.2",
-    "parcel": "^2.8.3",
-    "postcss": "^8.4.23",
+    "parcel": "^2.9.1",
+    "postcss": "^8.4.24",
     "postcss-modules": "^4.3.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.0-beta"
   },
-  "browser": {
-    "engines": {
-      "browsers": [
-        "> 1%",
-        "not dead"
-      ]
-    }
-  },
+  "browsersList": "> 1%, not dead",
   "targets": {
     "default": {
-      "publicUrl": " /typescript-errors-explorer"
+      "publicUrl": " /typescript-errors-explorer/"
     }
   },
   "author": {
