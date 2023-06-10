@@ -2,15 +2,14 @@ import * as s from './styles.module.css';
 import { dispatch } from '../../store';
 
 export const Footer: JSX.FC = () => {
-  const ready = (node: HTMLElement) => {
-    new IntersectionObserver((entries) => {
+  const ready = (node: HTMLElement) =>
+    new IntersectionObserver((entries) =>
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           dispatch('on/scroll');
         }
-      });
-    }).observe(node);
-  }
+      })
+    ).observe(node);
 
   return (
     <footer
