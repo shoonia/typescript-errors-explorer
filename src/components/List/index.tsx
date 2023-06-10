@@ -18,18 +18,20 @@ export const List: JSX.FC = () => {
       const markUp = template(search);
       const items = <></>;
 
-      messages.slice(start, end).forEach((i) => {
+      for (let i = start; i < end; i++) {
+        const msg = messages[i];
+
         items.append(
           <li class={s.item}>
             <code>
-              {markUp(i.code)}: {markUp(i.category)}
+              {markUp(msg.code)}: {markUp(msg.category)}
             </code>
             <p class={s.message}>
-              {markUp(i.message)}
+              {markUp(msg.message)}
             </p>
           </li>
         );
-      });
+      }
 
       if (start) {
         node.append(items);
