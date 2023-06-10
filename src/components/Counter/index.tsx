@@ -7,12 +7,12 @@ export const Counter: JSX.FC = () => {
   const [total, setTotal] = useText('0');
   const [current, setCurret] = useText('0');
 
-  connect('allMessages', ({ allMessages }) =>
-    setTotal(`${allMessages.length}`)
+  connect('all', ({ all }) =>
+    setTotal(`${all.length}`)
   );
 
-  connect('messages', ({ messages }) =>
-    setCurret(`${messages.length}`)
+  connect('items', ({ items }) =>
+    setCurret(`${items.length}`)
   );
 
   return (

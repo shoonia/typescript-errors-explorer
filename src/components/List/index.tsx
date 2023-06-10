@@ -4,8 +4,8 @@ import { template } from './template';
 
 export const List: JSX.FC = () => {
   const ready = (node: HTMLUListElement) => {
-    connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
-      if (isLoad && messages.length < 1) {
+    connect('start', 'end', ({ isLoad, items, search, start, end }) => {
+      if (isLoad && items.length < 1) {
         return node.replaceChildren(
           <li class={s.item}>
             <p>
@@ -16,27 +16,27 @@ export const List: JSX.FC = () => {
       }
 
       const markUp = template(search);
-      const items = <></>;
+      const fragment = <></>;
 
       for (let i = start; i < end; i++) {
-        const msg = messages[i];
+        const item = items[i];
 
-        items.append(
+        fragment.append(
           <li class={s.item}>
             <code>
-              {markUp(msg.code)}: {markUp(msg.category)}
+              {markUp(item.code)}: {markUp(item.category)}
             </code>
             <p class={s.message}>
-              {markUp(msg.message)}
+              {markUp(item.message)}
             </p>
           </li>
         );
       }
 
       if (start) {
-        node.append(items);
+        node.append(fragment);
       } else {
-        node.replaceChildren(items);
+        node.replaceChildren(fragment);
       }
     });
   };

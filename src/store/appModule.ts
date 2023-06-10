@@ -15,27 +15,27 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
     return {
       isLoad: false,
-      allMessages: [],
-      messages: [],
+      all: [],
+      items: [],
       search: getSearchParam(),
       start: 0,
       end: 0,
     };
   });
 
-  store.on('on/search', ({ allMessages, search }, newSearch) => {
+  store.on('on/search', ({ all, search }, newSearch) => {
     if (search !== newSearch) {
       return {
         search: newSearch,
-        messages: searchMessages(allMessages, newSearch),
+        items: searchMessages(all, newSearch),
         start: 0,
         end: LIMIT,
       };
     }
   });
 
-  store.on('on/scroll', ({ messages, end }) => {
-    const len = messages.length;
+  store.on('on/scroll', ({ items, end }) => {
+    const len = items.length;
 
     if (len > end) {
       const max = end + LIMIT;
@@ -47,13 +47,13 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
     }
   });
 
-  const allMessages = await getData();
+  const all = await getData();
   const { search } = store.get();
 
   store.set({
     isLoad: true,
-    allMessages,
-    messages: searchMessages(allMessages, search),
+    all,
+    items: searchMessages(all, search),
     end: LIMIT,
   });
 };
