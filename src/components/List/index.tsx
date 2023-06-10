@@ -2,7 +2,7 @@ import * as s from './styles.module.css';
 import { connect } from '../../store';
 import { template } from './template';
 
-export const List: FC = () => {
+export const List: JSX.FC = () => {
   const ready = (node: HTMLUListElement) => {
     connect('start', 'end', ({ isLoad, messages, search, start, end }) => {
       if (isLoad && messages.length < 1) {

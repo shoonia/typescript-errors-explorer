@@ -1,11 +1,9 @@
-import { useRef } from 'jsx-dom-runtime'
-
 import * as s from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
 const url = new URL(location.href);
 
-export const Input: FC = () => {
+export const Input: JSX.FC = () => {
   const ready = (node: HTMLInputElement) => {
     node.addEventListener('input', () => {
       const search = node.value.trim().toLowerCase();

@@ -7,7 +7,7 @@ import { SupportUkraine } from './SupportUkraine';
 import { Analytics } from './Analytics';
 import { readyStore } from '../store';
 
-export const App: FC = () => (
+export const App: JSX.FC = () => (
   <>
     <header class={s.header}>
       <SupportUkraine />

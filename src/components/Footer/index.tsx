@@ -1,7 +1,7 @@
 import * as s from './styles.module.css';
 import { dispatch } from '../../store';
 
-export const Footer: FC = () => {
+export const Footer: JSX.FC = () => {
   const ready = (node: HTMLElement) => {
     new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
