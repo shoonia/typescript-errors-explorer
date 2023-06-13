@@ -7,9 +7,10 @@ export const Counter: JSX.FC = () => {
   const [total, setTotal] = useText('0');
   const [current, setCurret] = useText('0');
 
-  connect('all', ({ all }) =>
-    setTotal(`${all.length}`)
-  );
+  const off = connect('all', ({ all }) => {
+    if (all.length) off();
+    setTotal(`${all.length}`);
+  });
 
   connect('items', ({ items }) =>
     setCurret(`${items.length}`)
