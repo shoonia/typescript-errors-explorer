@@ -16,12 +16,12 @@
     "storeon-velo": "^4.1.2"
   },
   "devDependencies": {
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.6.2",
     "mini-css-class-name": "^0.13.2",
     "parcel": "^2.9.3",
-    "postcss": "^8.4.26",
+    "postcss": "^8.4.29",
     "postcss-modules": "^4.3.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "browsersList": "> 1%, not dead",
   "targets": {
