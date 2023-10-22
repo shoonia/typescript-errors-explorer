@@ -1,15 +1,15 @@
-.list {
+._list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.item {
+._item {
   padding: 0.5em 0;
   border-bottom: 1px solid #b6c1cd;
 }
 
-.message {
+._message {
   margin: 0.5em 0;
   word-break: break-all;
 }

@@ -1,4 +1,4 @@
-import * as s from './styles.module.css';
+import { _item, _list, _message } from './styles.module.css';
 import { connect } from '../../store';
 import { template } from './template';
 
@@ -7,7 +7,7 @@ export const List: JSX.FC = () => {
     connect('start', 'end', ({ isLoad, items, search, start, end }) => {
       if (isLoad && items.length < 1) {
         return node.replaceChildren(
-          <li class={s.item}>
+          <li class={_item}>
             <p>
               <em>Not Found</em>
             </p>
@@ -22,11 +22,11 @@ export const List: JSX.FC = () => {
         const item = items[i];
 
         fragment.append(
-          <li class={s.item}>
+          <li class={_item}>
             <code>
               {markUp(item.code)}: {markUp(item.category)}
             </code>
-            <p class={s.message}>
+            <p class={_message}>
               {markUp(item.message)}
             </p>
           </li>
@@ -42,6 +42,6 @@ export const List: JSX.FC = () => {
   };
 
   return (
-    <ul class={s.list} ref={ready} />
+    <ul class={_list} ref={ready} />
   );
 };

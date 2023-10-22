@@ -1,16 +1,16 @@
-.box {
+._box {
   width: 100%;
   display: flex;
   gap: 1em;
   justify-content: center;
 }
 
-.link {
+._link {
   text-decoration: none;
   color: #fff;
   font-size: 1.1em;
 }
 
-.link:hover {
+._link:hover {
   text-decoration: underline;
 }

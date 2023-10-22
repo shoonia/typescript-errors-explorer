@@ -1,4 +1,4 @@
-import * as s from './styles.module.css';
+import { _label, _title, _search } from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
 const url = new URL(location.href);
@@ -24,14 +24,14 @@ export const Input: JSX.FC = () => {
   };
 
   return (
-    <label class={s.label}>
-      <div class={s.title}>
+    <label class={_label}>
+      <div class={_title}>
         Error code or message
       </div>
       <input
         ref={ready}
         type="text"
-        class={s.search}
+        class={_search}
         placeholder="code or message"
       />
     </label>

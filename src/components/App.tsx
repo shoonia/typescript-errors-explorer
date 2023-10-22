@@ -1,4 +1,4 @@
-import * as s from './styles.module.css';
+import { _header, _content } from './styles.module.css';
 import { Input } from './Input';
 import { Counter } from './Counter';
 import { List } from './List';
@@ -9,10 +9,10 @@ import { readyStore } from '../store';
 
 export const App: JSX.FC = () => (
   <>
-    <header class={s.header}>
+    <header class={_header}>
       <SupportUkraine />
     </header>
-    <main ref={readyStore} class={s.content}>
+    <main ref={readyStore} class={_content}>
       <h1>
         TypeScript errors explorer
       </h1>

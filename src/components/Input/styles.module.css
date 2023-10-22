@@ -1,22 +1,22 @@
-.label {
+._label {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 1em 0;
 }
 
-.title {
+._title {
   margin-bottom: 1em;
   font-weight: bold;
 }
 
-.search {
+._search {
   padding: 1em;
   border: 1px solid #116dff;
   border-radius: 2px;
   font-size: 1em;
 }
 
-.search::placeholder {
+._search::placeholder {
   color: #b6c1cd;
 }
