@@ -42,7 +42,7 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
 
       return {
         start: end,
-        end: max <= len ? max : len,
+        end: max < len ? max : len,
       };
     }
   });
