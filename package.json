@@ -5,8 +5,8 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "start": "npm run clean && parcel --no-source-maps --no-cache",
-    "build": "npm run clean && parcel build --no-source-maps --no-cache",
+    "start": "npm run clean && parcel --no-cache",
+    "build": "npm run clean && parcel build --no-cache",
     "serve": "python3 -m http.server -d dist",
     "clean": "rm -rf dist .parcel-cache",
     "test": "tsc"
@@ -26,6 +26,7 @@
   "browsersList": "> 1%, not dead",
   "targets": {
     "default": {
+      "sourceMap": false,
       "publicUrl": " /typescript-errors-explorer/"
     }
   },
