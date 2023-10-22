@@ -12,14 +12,14 @@
     "test": "tsc"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.57.0",
+    "jsx-dom-runtime": "^0.57.1",
     "storeon-velo": "^4.1.2"
   },
   "devDependencies": {
-    "@types/node": "^20.6.2",
+    "@types/node": "^20.8.7",
     "mini-css-class-name": "^0.13.2",
-    "parcel": "^2.9.3",
-    "postcss": "^8.4.29",
+    "parcel": "^2.10.0",
+    "postcss": "^8.4.31",
     "postcss-modules": "^4.3.1",
     "typescript": "^5.2.2"
   },
@@ -32,7 +32,7 @@
   "author": {
     "name": "Alexander Zaytsev",
     "email": "zaytsev126@gmail.com",
-    "url": "https://twitter.com/_shoonia"
+    "url": "https://x.com/_shoonia"
   },
   "license": "MIT"
 }
