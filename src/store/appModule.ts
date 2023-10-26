@@ -35,14 +35,10 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
   });
 
   store.on('on/scroll', ({ items, end }) => {
-    const len = items.length;
-
-    if (len > end) {
-      const max = end + LIMIT;
-
+    if (items.length > end) {
       return {
         start: end,
-        end: max < len ? max : len,
+        end: end + LIMIT,
       };
     }
   });

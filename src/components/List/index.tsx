@@ -5,7 +5,9 @@ import { template } from './template';
 export const List: JSX.FC = () => {
   const ready = (node: HTMLUListElement) => {
     connect('start', 'end', ({ isLoad, items, search, start, end }) => {
-      if (isLoad && items.length < 1) {
+      const len = items.length;
+
+      if (isLoad && len < 1) {
         return node.replaceChildren(
           <li class={_item}>
             <p>
@@ -18,7 +20,7 @@ export const List: JSX.FC = () => {
       const markUp = template(search);
       const fragment = <></>;
 
-      for (let i = start; i < end; i++) {
+      for (let i = start, l = end < len ? end : len; i < l; i++) {
         const item = items[i];
 
         fragment.append(
