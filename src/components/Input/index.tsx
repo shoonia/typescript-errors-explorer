@@ -14,7 +14,7 @@ export const Input: JSX.FC = () => {
         url.searchParams.delete('q');
       }
 
-      history.pushState(null, '', url.href);
+      history.pushState('', '', url.href);
       dispatch('on/search', search);
     });
 

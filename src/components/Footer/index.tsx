@@ -6,7 +6,7 @@ export const Footer: JSX.FC = () => {
     new IntersectionObserver((entries) =>
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          dispatch('on/scroll');
+          return dispatch('on/scroll');
         }
       })
     ).observe(node);
