@@ -3,7 +3,7 @@ export const template = (target: string) => {
     return (s: string) => s;
   }
 
-  const tmp = target.replace(/[\[\]()\|\\.*\^\?\+]/g, (i) => '\\' + i);
+  const tmp = target.replace(/[\[\](\){\}\|\\.*\^\?\+]/g, (i) => '\\' + i);
   const regExp = new RegExp(tmp, 'i');
 
   return (source: string) => {
