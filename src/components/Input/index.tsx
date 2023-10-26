@@ -31,9 +31,10 @@ export const Input: JSX.FC = () => {
         </div>
         <input
           ref={ready}
-          type="text"
+          type="search"
           class={_search}
           placeholder="code or message"
+          maxLength="250"
         />
       </label>
     </search>
