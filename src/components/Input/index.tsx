@@ -24,16 +24,18 @@ export const Input: JSX.FC = () => {
   };
 
   return (
-    <label class={_label}>
-      <div class={_title}>
-        Error code or message
-      </div>
-      <input
-        ref={ready}
-        type="text"
-        class={_search}
-        placeholder="code or message"
-      />
-    </label>
+    <search>
+      <label class={_label}>
+        <div class={_title}>
+          Error code or message
+        </div>
+        <input
+          ref={ready}
+          type="text"
+          class={_search}
+          placeholder="code or message"
+        />
+      </label>
+    </search>
   );
 };
