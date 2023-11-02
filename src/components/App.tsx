@@ -19,8 +19,8 @@ export const App: JSX.FC = () => (
       <Input />
       <Counter />
       <List />
-      <Footer />
     </main>
+    <Footer />
     <Analytics />
   </>
 );
