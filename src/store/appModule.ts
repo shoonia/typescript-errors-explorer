@@ -23,7 +23,7 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
     };
   });
 
-  store.on('on/search', ({ all, search }, newSearch) => {
+  store.on('search', ({ all, search }, newSearch) => {
     if (search !== newSearch) {
       return {
         search: newSearch,
@@ -34,7 +34,7 @@ export const appModule: StoreonModule<State, Events> = async (store) => {
     }
   });
 
-  store.on('on/scroll', ({ items, end }) => {
+  store.on('scroll', ({ items, end }) => {
     if (items.length > end) {
       return {
         start: end,

@@ -15,7 +15,7 @@ export const Input: JSX.FC = () => {
       }
 
       history.pushState('', '', url.href);
-      dispatch('on/search', search);
+      dispatch('search', search);
     });
 
     connect('search', (state) => {
