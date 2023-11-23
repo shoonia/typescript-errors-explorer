@@ -4,8 +4,8 @@ import { _box } from './styles.module.css';
 import { connect } from '../../store';
 
 export const Counter: JSX.FC = () => {
-  const [total, setTotal] = useText<number>(0);
-  const [current, setCurret] = useText<number>(0);
+  const [total, setTotal] = useText(0);
+  const [current, setCurret] = useText(0);
 
   const off = connect('all', ({ all, isLoad }) => {
     if (isLoad) off();

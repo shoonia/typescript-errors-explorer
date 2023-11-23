@@ -1,8 +1,8 @@
 import type { IMessage } from '../utils';
 
 export interface Events {
-  'on/search': string;
-  'on/scroll': never;
+  'search': string;
+  'scroll': never;
 }
 
 export interface State {
