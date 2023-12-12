@@ -12,16 +12,16 @@
     "test": "tsc"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.58.2",
+    "jsx-dom-runtime": "^0.60.0",
     "storeon-velo": "^5.0.0-rc.0"
   },
   "devDependencies": {
-    "@types/node": "^20.9.4",
+    "@types/node": "^20.10.4",
     "mini-css-class-name": "^0.15.0",
     "parcel": "^2.10.3",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.32",
     "postcss-modules": "^4.3.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "browsersList": "> 1%, not dead",
   "targets": {
