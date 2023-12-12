@@ -1,9 +1,11 @@
+import type { RefCallback } from 'jsx-dom-runtime';
+
 import { _item, _list, _message } from './styles.module.css';
 import { connect } from '../../store';
 import { template } from './template';
 
 export const List: JSX.FC = () => {
-  const ready = (node: HTMLUListElement) => {
+  const ready: RefCallback<HTMLUListElement> = (node) => {
     connect('start', 'end', ({ isLoad, items, search, start, end }) => {
       const len = items.length;
 
