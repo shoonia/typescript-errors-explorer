@@ -1,14 +1,15 @@
 ._box {
   width: 100%;
   display: flex;
-  gap: 1em;
   justify-content: center;
 }
 
 ._link {
+  display: inline-flex;
+  gap: 1em;
   text-decoration: none;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 ._link:hover {
