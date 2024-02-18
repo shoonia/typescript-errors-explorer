@@ -16,10 +16,10 @@
     "storeon-velo": "^5.0.0-rc.2"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.11.19",
     "mini-css-class-name": "^0.15.0",
-    "parcel": "^2.10.3",
-    "postcss": "^8.4.32",
+    "parcel": "^2.11.0",
+    "postcss": "^8.4.35",
     "postcss-modules": "^4.3.1",
     "typescript": "^5.3.3"
   },
