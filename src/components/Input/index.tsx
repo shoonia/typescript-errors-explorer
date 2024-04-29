@@ -1,12 +1,10 @@
-import type { RefCallback } from 'jsx-dom-runtime';
-
 import { _label, _title, _search } from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
 const url = new URL(location.href);
 
 export const Input: JSX.FC = () => {
-  const ready: RefCallback<HTMLInputElement> = (node) => {
+  const ready: JSX.Ref<HTMLInputElement> = (node) => {
     node.addEventListener('input', () => {
       const search = node.value.trim().toLowerCase();
 
