@@ -12,7 +12,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.65.2",
+    "jsx-dom-runtime": "^0.67.2",
     "storeon-velo": "^5.0.0-rc.5"
   },
   "devDependencies": {
