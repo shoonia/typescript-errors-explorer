@@ -7,8 +7,8 @@ export interface Events {
 
 export interface State {
   readonly isLoad: boolean;
-  readonly all: IMessage[];
-  readonly items: IMessage[];
+  readonly all: readonly IMessage[];
+  readonly items: readonly IMessage[];
   readonly search: string;
   readonly start: number;
   readonly end: number;

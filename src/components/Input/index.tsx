@@ -4,24 +4,23 @@ import { dispatch, connect } from '../../store';
 const url = new URL(location.href);
 
 export const Input: JSX.FC = () => {
-  const ready: JSX.Ref<HTMLInputElement> = (node) => {
-    node.addEventListener('input', () => {
-      const search = node.value.trim().toLowerCase();
+  const input: JSX.InputEventListener<HTMLInputElement> = (event) => {
+    const search = event.currentTarget.value.trim().toLowerCase();
 
-      if (search) {
-        url.searchParams.set('q', search);
-      } else {
-        url.searchParams.delete('q');
-      }
+    if (search) {
+      url.searchParams.set('q', search);
+    } else {
+      url.searchParams.delete('q');
+    }
 
-      history.pushState('', '', url.href);
-      dispatch('search', search);
-    });
+    history.pushState('', '', url.href);
+    dispatch('search', search);
+  };
 
+  const ready: JSX.Ref<HTMLInputElement> = (node) =>
     connect('search', (state) => {
       node.value = state.search;
     });
-  };
 
   return (
     <search>
@@ -31,6 +30,7 @@ export const Input: JSX.FC = () => {
         </div>
         <input
           ref={ready}
+          on:input={input}
           type="search"
           class={_search}
           placeholder="code or message"

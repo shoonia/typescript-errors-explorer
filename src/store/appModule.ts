@@ -5,11 +5,10 @@ import { getSearchParam, getData, IMessage } from '../utils';
 
 const LIMIT = Math.ceil(window.innerHeight / 90);
 
-const searchMessages = (all: IMessage[], search: string): IMessage[] => {
-  return all.filter(
+const searchMessages = (all: readonly IMessage[], search: string): readonly IMessage[] =>
+  all.filter(
     (i) => i.code.startsWith(search) || i.message.toLowerCase().includes(search),
   );
-};
 
 export const appModule: StoreonModule<State, Events> = async (store) => {
   store.on('@init', () => {
