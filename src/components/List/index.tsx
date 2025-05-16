@@ -18,7 +18,7 @@ export const List: JSX.FC = () => {
       }
 
       const markUp = template(search);
-      const fragment = <></>;
+      const fragment = new DocumentFragment();
 
       for (let i = start, l = end < len ? end : len; i < l; i++) {
         const item = items[i];
