@@ -1,6 +1,6 @@
 import type { StoreonModule } from 'storeon-velo';
 
-import type { State, Events } from './types'
+import type { State, Events } from './types';
 import { getSearchParam, getData, IMessage } from '../utils';
 
 const LIMIT = Math.ceil(window.innerHeight / 90);

@@ -6,7 +6,7 @@ export interface IMessage {
 
 export const getData = async (): Promise<IMessage[]> => {
   const response = await fetch('https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json');
-  const data = await response.json()
+  const data = await response.json();
 
   const messages: IMessage[] = [];
 
@@ -24,5 +24,5 @@ export const getData = async (): Promise<IMessage[]> => {
 };
 
 export const getSearchParam = (): string => {
-  return new URL(location.href).searchParams.get('q') || ''
-}
+  return new URLSearchParams(location.search).get('q') || '';
+};

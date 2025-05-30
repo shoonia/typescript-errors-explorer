@@ -5,5 +5,5 @@ import { getSearchParam } from './utils';
 document.body.append(<App />);
 
 addEventListener('popstate', () =>
-  dispatch('search', getSearchParam())
+  dispatch('search', getSearchParam()),
 );

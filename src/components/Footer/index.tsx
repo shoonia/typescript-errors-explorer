@@ -8,7 +8,7 @@ export const Footer: JSX.FC = () => {
         if (entry.isIntersecting) {
           dispatch('scroll');
         }
-      })
+      }),
     ).observe(node);
 
   return (

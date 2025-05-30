@@ -13,7 +13,7 @@ export const Counter: JSX.FC = () => {
   });
 
   connect('items', ({ items }) =>
-    setCurret(items.length)
+    setCurret(items.length),
   );
 
   return (

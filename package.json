@@ -9,18 +9,21 @@
     "build": "npm run clean && parcel build --no-cache",
     "serve": "python3 -m http.server -d dist",
     "clean": "rm -rf dist .parcel-cache",
-    "test": "tsc"
+    "test": "tsc",
+    "lint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.73.0",
+    "jsx-dom-runtime": "^0.75.0",
     "storeon-velo": "^5.0.0-rc.5"
   },
   "devDependencies": {
-    "@types/node": "^22.15.18",
-    "parcel": "^2.15.1",
-    "postcss": "^8.5.3",
+    "@eslint/js": "^9.27.0",
+    "@types/node": "^22.15.27",
+    "parcel": "^2.15.2",
+    "postcss": "^8.5.4",
     "postcss-modules": "^6.0.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.0"
   },
   "browsersList": "> 1%, not dead",
   "targets": {

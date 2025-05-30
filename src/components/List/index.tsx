@@ -13,7 +13,7 @@ export const List: JSX.FC = () => {
             <p>
               <em>Not Found</em>
             </p>
-          </li>
+          </li>,
         );
       }
 
@@ -31,7 +31,7 @@ export const List: JSX.FC = () => {
             <p class={_message}>
               {markUp(item.message)}
             </p>
-          </li>
+          </li>,
         );
       }
 
