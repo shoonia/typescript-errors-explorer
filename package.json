@@ -13,17 +13,17 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.75.0",
-    "storeon-velo": "^5.0.0-rc.5"
+    "jsx-dom-runtime": "^0.75.2",
+    "storeon-velo": "^5.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.27.0",
-    "@types/node": "^22.15.27",
-    "parcel": "^2.15.2",
-    "postcss": "^8.5.4",
+    "@eslint/js": "^9.30.1",
+    "@types/node": "^22.16.0",
+    "parcel": "^2.15.4",
+    "postcss": "^8.5.6",
     "postcss-modules": "^6.0.1",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.0"
+    "typescript-eslint": "^8.35.1"
   },
   "browsersList": "> 1%, not dead",
   "targets": {
