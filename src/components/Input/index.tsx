@@ -23,20 +23,23 @@ export const Input: JSX.FC = () => {
     });
 
   return (
-    <search>
-      <label class={_label}>
-        <div class={_title}>
-          Error code or message
-        </div>
-        <input
-          ref={ready}
-          on:input={input}
-          type="search"
-          class={_search}
-          placeholder="code or message"
-          maxLength="250"
-        />
-      </label>
-    </search>
+    <form on:submit={(e) => e.preventDefault()}>
+      <search>
+        <label class={_label}>
+          <div class={_title}>
+            Error code or message
+          </div>
+          <input
+            ref={ready}
+            on:input={input}
+            type="search"
+            name="search"
+            class={_search}
+            placeholder="code or message"
+            maxLength="250"
+          />
+        </label>
+      </search>
+    </form>
   );
 };
