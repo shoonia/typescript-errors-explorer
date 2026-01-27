@@ -1,6 +1,6 @@
 import { useText } from 'jsx-dom-runtime';
 
-import { _box } from './styles.module.css';
+import * as s from './styles.module.css';
 import { connect } from '../../store';
 
 export const Counter: JSX.FC = () => {
@@ -17,7 +17,7 @@ export const Counter: JSX.FC = () => {
   );
 
   return (
-    <div class={_box}>
+    <div class={s.box}>
       {current}
       <b>/</b>
       {total}

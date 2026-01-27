@@ -1,4 +1,4 @@
-import { _footer } from './styles.module.css';
+import * as s from './styles.module.css';
 import { dispatch } from '../../store';
 
 export const Footer: JSX.FC = () => {
@@ -14,7 +14,7 @@ export const Footer: JSX.FC = () => {
   return (
     <footer
       ref={ready}
-      class={_footer}
+      class={s.footer}
     />
   );
 };

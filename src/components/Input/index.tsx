@@ -1,4 +1,4 @@
-import { _label, _title, _search } from './styles.module.css';
+import * as s from './styles.module.css';
 import { dispatch, connect } from '../../store';
 
 const url = new URL(location.href);
@@ -25,8 +25,8 @@ export const Input: JSX.FC = () => {
   return (
     <form on:submit={(e) => e.preventDefault()}>
       <search>
-        <label class={_label}>
-          <div class={_title}>
+        <label class={s.label}>
+          <div class={s.title}>
             Error code or message
           </div>
           <input
@@ -34,7 +34,7 @@ export const Input: JSX.FC = () => {
             on:input={input}
             type="search"
             name="search"
-            class={_search}
+            class={s.search}
             placeholder="code or message"
             maxLength="250"
           />

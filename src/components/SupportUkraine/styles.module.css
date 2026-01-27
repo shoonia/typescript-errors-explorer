@@ -1,10 +1,10 @@
-._box {
+.box {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-._link {
+.link {
   display: inline-flex;
   gap: 1em;
   text-decoration: none;
@@ -12,6 +12,6 @@
   font-size: 1em;
 }
 
-._link:hover {
+.link:hover {
   text-decoration: underline;
 }

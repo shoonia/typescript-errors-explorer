@@ -1,17 +1,17 @@
-._list {
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
   counter-increment: tidbit-counter 0;
 }
 
-._item {
+.item {
   padding: 0.5em 0;
   border-bottom: 1px solid #b6c1cd;
   position: relative;
 }
 
-._item::before {
+.item::before {
   counter-increment: tidbit-counter;
   content: counter(tidbit-counter);
   font-size: 90%;
@@ -21,10 +21,10 @@
   color: #939393;
 }
 
-._item:hover {
+.item:hover {
   background-color: #f5f5f5;
 }
 
-._message {
+.message {
   margin: 0.5em 3em 0.5em 0;
 }
