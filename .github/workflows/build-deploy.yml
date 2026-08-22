@@ -5,9 +5,15 @@ on:
     branches:
       - master
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  build-deploy:
-    runs-on: ubuntu-22.04
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v4
@@ -23,9 +29,21 @@ jobs:
     - run: npm run lint
     - run: npm run build
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_branch: gh-pages
-        publish_dir: ./dist
+        path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
