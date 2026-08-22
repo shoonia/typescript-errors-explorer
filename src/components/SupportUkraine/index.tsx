@@ -1,4 +1,4 @@
-import * as s from './styles.module.css';
+import s from './styles.module.css';
 
 export const SupportUkraine: JSX.FC = () =>
   <div class={s.box}>

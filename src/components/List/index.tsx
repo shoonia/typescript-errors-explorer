@@ -1,5 +1,5 @@
-import * as s from './styles.module.css';
 import { connect } from '../../store';
+import s from './styles.module.css';
 import { template } from './template';
 
 export const List: JSX.FC = () => {

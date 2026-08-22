@@ -11,23 +11,23 @@
     "preview": "vite preview --open",
     "serve": "python3 -m http.server -d dist",
     "test": "tsc",
-    "lint": "eslint 'src/**/*.{ts,tsx}'"
+    "lint": "eslint src"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.81.0",
-    "storeon-velo": "^5.0.0"
+    "jsx-dom-runtime": "^0.84.0",
+    "storeon-velo": "^5.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@rollup/plugin-babel": "^6.1.0",
+    "@eslint/js": "^10.0.1",
+    "@rolldown/plugin-babel": "^0.2.3",
     "@types/node": "^24.5.2",
     "mini-css-class-name": "^0.16.0",
-    "terser": "^5.46.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0",
-    "vite": "^7.3.1"
+    "terser": "^5.50.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.67.0",
+    "vite": "^8.2.2",
+    "vite-plugin-singlefile": "^2.3.3"
   },
-  "browsersList": "> 1%, not dead",
   "author": {
     "name": "Alexander Zaytsev",
     "email": "zaytsev126@gmail.com",

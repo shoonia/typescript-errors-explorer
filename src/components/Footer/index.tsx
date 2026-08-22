@@ -1,5 +1,5 @@
-import * as s from './styles.module.css';
 import { dispatch } from '../../store';
+import s from './styles.module.css';
 
 export const Footer: JSX.FC = () => {
   const ready: JSX.Ref<HTMLElement> = (node) =>

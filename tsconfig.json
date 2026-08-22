@@ -3,7 +3,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "jsx-dom-runtime",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "esModuleInterop": true,

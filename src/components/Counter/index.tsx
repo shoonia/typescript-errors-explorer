@@ -1,11 +1,11 @@
 import { useText } from 'jsx-dom-runtime';
 
-import * as s from './styles.module.css';
 import { connect } from '../../store';
+import s from './styles.module.css';
 
 export const Counter: JSX.FC = () => {
   const [total, setTotal] = useText(0);
-  const [current, setCurret] = useText(0);
+  const [current, setCurrent] = useText(0);
 
   const off = connect('all', ({ all, isLoad }) => {
     if (isLoad) off();
@@ -13,7 +13,7 @@ export const Counter: JSX.FC = () => {
   });
 
   connect('items', ({ items }) =>
-    setCurret(items.length),
+    setCurrent(items.length),
   );
 
   return (

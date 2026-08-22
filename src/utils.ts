@@ -5,7 +5,7 @@ export interface IMessage {
 }
 
 export const getData = async (): Promise<IMessage[]> => {
-  const response = await fetch('https://raw.githubusercontent.com/microsoft/TypeScript/main/src/compiler/diagnosticMessages.json');
+  const response = await fetch('https://raw.githubusercontent.com/microsoft/TypeScript/main/tsc/internal/diagnostics/diagnosticMessages.json');
   const data = await response.json();
 
   const messages: IMessage[] = [];

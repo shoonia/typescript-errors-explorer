@@ -1,5 +1,5 @@
-import * as s from './styles.module.css';
-import { dispatch, connect } from '../../store';
+import { connect, dispatch } from '../../store';
+import s from './styles.module.css';
 
 const url = new URL(location.href);
 
