@@ -38,12 +38,21 @@ jobs:
     needs: build
     runs-on: ubuntu-24.04
     permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
     steps:
+    - name: Download Pages artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: github-pages
+        path: ./dist-artifact
+
+    - name: Extract artifact
+      run: |
+        mkdir -p ./dist
+        tar -xf ./dist-artifact/artifact.tar -C ./dist
+
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
