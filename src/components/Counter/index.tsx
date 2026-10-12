@@ -1,19 +1,19 @@
-import { useText } from 'jsx-dom-runtime';
+import { signal } from 'jsx-dom-runtime';
 
 import { connect } from '../../store';
 import s from './styles.module.css';
 
 export const Counter: JSX.FC = () => {
-  const [total, setTotal] = useText(0);
-  const [current, setCurrent] = useText(0);
+  const total = signal(0);
+  const current = signal(0);
 
   const off = connect('all', ({ all, isLoad }) => {
     if (isLoad) off();
-    setTotal(all.length);
+    total.set(all.length);
   });
 
   connect('items', ({ items }) =>
-    setCurrent(items.length),
+    current.set(items.length),
   );
 
   return (

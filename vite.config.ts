@@ -50,6 +50,14 @@ export default defineConfig({
         : '[name]__[local]___[hash:base64:5]',
     },
   },
+  optimizeDeps: {
+    rolldownOptions: {
+      transform: {
+        jsx: 'preserve',
+        target: 'esnext',
+      },
+    },
+  },
   oxc: {
     target: 'esnext',
     jsx: 'preserve',
