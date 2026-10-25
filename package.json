@@ -14,21 +14,21 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "jsx-dom-runtime": "^0.86.0",
+    "jsx-dom-runtime": "^0.87.0",
     "storeon-velo": "^5.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.7",
+    "@babel/core": "^8.0.9",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.4",
-    "@types/node": "^24.5.2",
-    "eslint": "^10.12.0",
+    "@types/node": "^26.6.5",
+    "eslint": "^10.13.0",
     "mini-css-class-name": "^0.16.0",
     "terser": "^5.51.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.2",
-    "vite": "^8.3.4",
-    "vite-plugin-singlefile": "^2.3.3"
+    "typescript-eslint": "^8.72.0",
+    "vite": "^8.3.5",
+    "vite-plugin-singlefile": "^2.3.4"
   },
   "author": {
     "name": "Alexander Zaytsev",
