@@ -5,15 +5,9 @@ on:
     branches:
       - master
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-26.04
-    permissions:
-      contents: read
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v7
@@ -24,35 +18,14 @@ jobs:
         node-version: 26
         cache: npm
 
-    - run: npm install
+    - run: npm ci
     - run: npm test
     - run: npm run lint
     - run: npm run build
 
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-    - name: Download Pages artifact
-      uses: actions/download-artifact@v8
-      with:
-        name: github-pages
-        path: ./dist-artifact
-
-    - name: Extract artifact
-      run: |
-        mkdir -p ./dist
-        tar -xf ./dist-artifact/artifact.tar -C ./dist
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_branch: gh-pages
         publish_dir: ./dist
