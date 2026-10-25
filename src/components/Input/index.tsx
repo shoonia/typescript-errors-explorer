@@ -4,9 +4,13 @@ import { connect, dispatch } from '../../store';
 import s from './styles.module.css';
 
 const url = new URL(location.href);
+const value = signal();
+
+connect('search', (state) => {
+  value.set(state.search);
+});
 
 export const Input: JSX.FC = () => {
-  const value = signal();
   const input: JSX.InputEventListener<HTMLInputElement> = (event) => {
     const search = event.currentTarget.value.trim().toLowerCase();
 
@@ -19,10 +23,6 @@ export const Input: JSX.FC = () => {
     history.pushState('', '', url.href);
     dispatch('search', search);
   };
-
-  connect('search', (state) => {
-    value.set(state.search);
-  });
 
   return (
     <form on:submit={(e) => e.preventDefault()}>
